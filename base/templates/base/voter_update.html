@@ -1,0 +1,19 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div>
+    <h1>Edit Your Details</h1>
+</div>
+Logged in user--{{user}}
+Voter:{{voter.username}}
+
+<div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Update"/>
+    </form>
+</div>
+
+{% endblock content %}

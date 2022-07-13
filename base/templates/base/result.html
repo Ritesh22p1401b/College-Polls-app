@@ -1,0 +1,33 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div>
+    <h1>Election Results</h1>
+    {% if request.user.is_superuser %}
+        <h2 class="text-center">Result</h2>
+        <table class="table table-bordered table-sm text-center">
+            <thead>
+                <tr>
+                    <th>Candidate Name</th>
+                    <th>Candidate Position</th>
+                    <th>Total Vote</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in results %}
+                <tr>
+                    <td>{{ i.first_name }}&nbsp{{ i.last_name }}</td>
+                    <td>{{ i.position }}</td>
+                    <td>{{ i.total_vote }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+    <p>Access Denied</p>
+    {% endif %}
+
+</div>
+
+{% endblock content %}

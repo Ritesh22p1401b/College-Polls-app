@@ -1,0 +1,41 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div>
+
+    <div>
+        <h1>Voter List</h1>
+        {{user}}----{{user.id}}
+        <br/><br/>
+        <center>
+            {% if messages %}
+                {% for message in messages %}
+                    {{message}}
+                {% endfor %}
+            {% endif %}
+        </center>
+    </div>
+
+    <div>
+
+        {% for voter in voters %}
+            <div>
+                {% if user.is_authenticated %}
+                    {% if request.user == voter.username %}
+                        <a href="{% url 'voter-details' voter.id %}"><span>{{voter.id}}--{{voter}}</span></a>
+                        <a href="{% url 'vote-update' voter.id %}">Update</a>
+                        <a href="{% url 'position' %}"><button>Vote</button></a>
+                        <br /><br />
+                    {% else %}
+                        <a href="{% url 'voter-details' voter.id %}"><span>{{voter.id}}--{{voter}}</span></a>
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock content %}

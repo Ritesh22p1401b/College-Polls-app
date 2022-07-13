@@ -1,0 +1,28 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div>
+    <div>
+        {% if messages %}
+
+            {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{message}}&nbsp</strong>&nbspThank You For Visiting.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+
+        {% endif %}
+    </div>
+</div>
+
+<div>
+    <div>
+        <h1>Welcome to Online Voting System</h1>
+        <h3>Check the links above</h3>
+        
+    </div>
+</div>
+
+{% endblock content %}

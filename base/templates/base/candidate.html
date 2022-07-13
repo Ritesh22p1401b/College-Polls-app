@@ -1,0 +1,26 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div>
+    <h1>List of Candidates</h1>
+</div>
+
+<div>
+    {{user}}---{{user.id}}
+    <br/><br/>
+    {% if user.is_authenticated %}
+        {% for candidate in candidates %}
+            {% if request.user == candidate.username %}
+                <a href="{% url 'candidate-profile' candidate.id %}">{{candidate.id}}--{{candidate}}</a>
+                <a href="{% url 'candidate-update' candidate.id %}"><span>Update</span></a>
+                <br/><br/>
+            {% else %}
+                <a href="{% url 'candidate-profile' candidate.id %}">{{candidate.id}}--{{candidate}}</a>
+                <br/><br/>
+            {% endif %}
+        {% endfor %}        
+    {% endif %}
+</div>
+
+{% endblock content %}

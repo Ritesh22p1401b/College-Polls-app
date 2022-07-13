@@ -1,0 +1,24 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<center>
+
+    {% if request.user == profile.username %}
+        <h1>My Profile</h1>
+        {{profile}}<br/>
+        {{profile.college_name}}<br/>
+        {{profile.student_id}}<br/>
+        {{profile.e_mail}}<br/>
+        {{profile.phone_number}}<br/>
+        {{profile.adhaar_card_no}}<br/>
+        {{profile.created}}<br/>
+        <br/>
+        <br/>
+    {% else %}
+        <h1>Access Denied</h1>
+    {% endif %}
+
+</center>
+
+{% endblock content %}
