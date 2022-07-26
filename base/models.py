@@ -25,6 +25,7 @@ class Candidate(models.Model):
         return self.first_name + " " + self.last_name
 
 
+
 class Voters(models.Model):
     username =  models.ForeignKey(User, on_delete=models.SET_NULL,null=True)
     first_name=models.CharField('First Name',max_length=100)
