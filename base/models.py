@@ -8,6 +8,7 @@ class Position(models.Model):
     def __str__(self):
         return self.title
 
+
 class Candidate(models.Model):
     username=models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
     first_name=models.CharField('First Name',max_length=100)
